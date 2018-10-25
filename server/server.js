@@ -1,11 +1,29 @@
-const express = require('express')
-const app = express()
-const port = 3000
-const bodyParser = require('body-parser')
-const path = require('path')
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const Home = require('./dataGen.js').home;
 
-app.use('/', express.static(path.join('././client/dist')))
+const app = express();
+const port = 3010;
 
-//app.get('/', (req, res) => res.send('Hello World!'))
+app.use(bodyParser.json());
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.use('/', express.static(path.join('././client/dist')));
+
+app.get('/home', (req, res) => {
+  let num = Math.floor(Math.random() * 101);
+  if (req.query.home) {
+    num = req.query.home;
+  }
+  Home.findAll({
+    where: {
+      id: num
+    }
+  }).then(homes => {
+    res.send(homes);
+  });
+});
+
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}!`);
+});

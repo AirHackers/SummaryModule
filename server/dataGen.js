@@ -1,8 +1,9 @@
 const faker = require('faker')
 const Sequelize = require('sequelize');
-const Promise = require("bluebird");
 
-const sequelize = new Sequelize('mysql://root@localhost:3306/airbnb');
+const sequelize = new Sequelize('mysql://root@localhost:3306/airbnb', {
+    logging: false
+});
 
 const Home = sequelize.define('home', {
     id: {
@@ -20,7 +21,7 @@ const Home = sequelize.define('home', {
         type: Sequelize.STRING(500)
     },
     moreSummary: {
-        type: Sequelize.STRING(500)
+        type: Sequelize.STRING(2500)
     },   
     HighLightOne: {
         type: Sequelize.STRING
@@ -34,11 +35,47 @@ const Home = sequelize.define('home', {
     GuestNo: {
         type: Sequelize.TINYINT
     },  
+    BedroomNo: {
+        type: Sequelize.TINYINT
+    }, 
+    BedNo: {
+        type: Sequelize.TINYINT
+    },
+    BathNo: {
+        type: Sequelize.TINYINT
+    },
+    BadgeNo: {
+        type: Sequelize.TINYINT
+    }, 
     firstName: {
       type: Sequelize.STRING
     },
-    lastName: {
+    city: {
       type: Sequelize.STRING
+    },
+    AmenityOne: {
+        type: Sequelize.STRING
+    },  
+    AmenityTwo: {
+        type: Sequelize.STRING
+    },  
+    AmenityThree: {
+        type: Sequelize.STRING
+    },
+    AmenityFour: {
+        type: Sequelize.STRING
+    },
+    AmenityOneDesc: {
+        type: Sequelize.STRING
+    },  
+    AmenityTwoDesc: {
+        type: Sequelize.STRING
+    },  
+    AmenityThreeDesc: {
+        type: Sequelize.STRING
+    },
+    AmenityFourDesc: {
+        type: Sequelize.STRING
     }
 });
 
@@ -48,13 +85,26 @@ const dataGen = () => {
         var home = {
             title: faker.company.catchPhrase(),
             homeType: faker.lorem.words(4),
-            summary: faker.lorem.paragraph(5),
-            moreSummary: faker.lorem.paragraph(5),   
+            summary: faker.lorem.sentences(5,2),
+            moreSummary: faker.lorem.paragraph(25,2),   
             HighLightOne: faker.lorem.sentence(5),  
             HighLightTwo: faker.lorem.sentence(5),  
-            HighLightThree: faker.lorem.sentence(5, 10),  
-            GuestNo: faker.random.number({min: 1, max: 30}),  
-            firstName: faker.name.firstName()
+            HighLightThree: faker.lorem.sentence(5),  
+            GuestNo: faker.random.number({min: 1, max: 30}),
+            BedroomNo: faker.random.number({min: 1, max: 30}),
+            BedNo: faker.random.number({min: 1, max: 30}),
+            BathNo: faker.random.number({min: 1, max: 30}),
+            BadgeNo: faker.random.number({min: 1, max: 3}),  
+            firstName: faker.name.firstName(),
+            city: faker.address.city(),
+            AmenityOne: faker.lorem.words(1),
+            AmenityTwo: faker.lorem.words(1),
+            AmenityThree: faker.lorem.words(1),
+            AmenityFour: faker.lorem.words(1),
+            AmenityOneDesc: faker.company.catchPhrase(),
+            AmenityTwoDesc: faker.company.catchPhrase(),
+            AmenityThreeDesc: faker.company.catchPhrase(),
+            AmenityFourDesc: faker.company.catchPhrase(),
         }
         hundredRecords.push(home);
     }
@@ -62,15 +112,9 @@ const dataGen = () => {
         // Table created
         Home.bulkCreate(hundredRecords)
     });
-    //console.log(hundredRecords)
-    // sequelize
-    //     .authenticate()
-    //     .then(() => {
-    //         console.log('Connection has been established successfully.');
-    //     })
-    //     .catch(err => {
-    //         console.error('Unable to connect to the database:', err);
-    //     });
 }
 
+dataGen();
+
 module.exports.dataGen = dataGen;
+module.exports.home = Home;

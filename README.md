@@ -1,13 +1,10 @@
-# Project Name
+# Summary Module
 
-> Project description
+> The summary module for a bnb ecomm site.
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+- https://github.com/Airhackers/
 
 ## Table of Contents
 
@@ -36,4 +33,3 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
-

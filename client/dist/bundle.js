@@ -123,15 +123,42 @@ function (_React$Component) {
   _inherits(App, _React$Component);
 
   function App(props) {
+    var _this;
+
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
+    _this.state = {
+      home: {}
+    };
+    return _this;
   }
 
   _createClass(App, [{
+    key: "fetchHome",
+    value: function fetchHome(cb) {
+      fetch('http://localhost:3001/home/2').then(function (response) {
+        return response.json();
+      }).then(function (myJson) {
+        cb(myJson[0]);
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      this.fetchHome(function (val) {
+        var newState = _this2.state;
+        newState.home = val;
+
+        _this2.setState(newState);
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "tes");
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.state.home.summary);
     }
   }]);
 

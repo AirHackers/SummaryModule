@@ -4,20 +4,16 @@ const path = require('path');
 const Home = require('./dataGen.js').home;
 
 const app = express();
-const port = 3010;
+const port = 3001;
 
 app.use(bodyParser.json());
 
 app.use('/', express.static(path.join('././client/dist')));
 
-app.get('/home', (req, res) => {
-  let num = Math.floor(Math.random() * 101);
-  if (req.query.home) {
-    num = req.query.home;
-  }
+app.get('/home/:homeId', (req, res) => {
   Home.findAll({
     where: {
-      id: num
+      id: req.param('homeId')
     }
   }).then(homes => {
     res.send(homes);

@@ -97,6 +97,8 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _title_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./title.jsx */ "./client/src/components/title.jsx");
+/* harmony import */ var _mainBody_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mainBody.jsx */ "./client/src/components/mainBody.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -114,6 +116,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
 
 
 
@@ -136,8 +140,8 @@ function (_React$Component) {
 
   _createClass(App, [{
     key: "fetchHome",
-    value: function fetchHome(cb) {
-      fetch('http://localhost:3001/home/2').then(function (response) {
+    value: function fetchHome(home, cb) {
+      fetch("http://localhost:3001/home/".concat(home, "/data")).then(function (response) {
         return response.json();
       }).then(function (myJson) {
         cb(myJson[0]);
@@ -148,7 +152,9 @@ function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      this.fetchHome(function (val) {
+      // reference to specific home listing
+      var param = window.location.href.slice(27, -1);
+      this.fetchHome(param, function (val) {
         var newState = _this2.state;
         newState.home = val;
 
@@ -158,7 +164,19 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.state.home.summary);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "mainApp"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_title_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        title: this.state.home.title,
+        type: this.state.home.homeType,
+        city: this.state.home.city,
+        guestno: this.state.home.GuestNo,
+        bedroomno: this.state.home.BedroomNo,
+        bedno: this.state.home.BedNo,
+        bathno: this.state.home.BathNo
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainBody_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        summary: this.state.home.summary
+      }));
     }
   }]);
 
@@ -166,6 +184,93 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
+
+/***/ }),
+
+/***/ "./client/src/components/mainBody.jsx":
+/*!********************************************!*\
+  !*** ./client/src/components/mainBody.jsx ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function MainBody(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "summary"
+  }, props.summary));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (MainBody);
+
+/***/ }),
+
+/***/ "./client/src/components/roomInfo.jsx":
+/*!********************************************!*\
+  !*** ./client/src/components/roomInfo.jsx ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function RoomInfo(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "roominfo"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "".concat(props.info, " ").concat(props.string)));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (RoomInfo);
+
+/***/ }),
+
+/***/ "./client/src/components/title.jsx":
+/*!*****************************************!*\
+  !*** ./client/src/components/title.jsx ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _roomInfo_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./roomInfo.jsx */ "./client/src/components/roomInfo.jsx");
+
+
+
+function Title(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "type"
+  }, props.type), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    id: "title"
+  }, props.title), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "city"
+  }, props.city), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_roomInfo_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    info: props.guestno,
+    string: 'guests'
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_roomInfo_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    info: props.bedroomno,
+    string: 'bedrooms'
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_roomInfo_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    info: props.bedno,
+    string: 'beds'
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_roomInfo_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    info: props.bathno,
+    string: 'bath'
+  })));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Title);
 
 /***/ }),
 

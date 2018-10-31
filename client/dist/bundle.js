@@ -184,7 +184,8 @@ function (_React$Component) {
     _this.handleOpenModal = _this.handleOpenModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.handleCloseModal = _this.handleCloseModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
-  }
+  } // fetch call to get all data from mysql db. Utilized callback to maintain state with retried data.
+
 
   _createClass(App, [{
     key: "fetchHome",
@@ -237,7 +238,11 @@ function (_React$Component) {
         bedroomno: this.state.home.BedroomNo,
         bedno: this.state.home.BedNo,
         bathno: this.state.home.BathNo
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_highlights_jsx__WEBPACK_IMPORTED_MODULE_9__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainBody_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_highlights_jsx__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        highlightOne: this.state.home.HighLightOne,
+        highlightTwo: this.state.home.HighLightTwo,
+        highlightThree: this.state.home.HighLightThree
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainBody_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
         summary: this.state.home.summary
       }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_secondBody_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
         moresummary: this.state.home.moreSummary
@@ -322,6 +327,92 @@ function Contact(props) {
 
 /***/ }),
 
+/***/ "./client/src/components/highlightChild.jsx":
+/*!**************************************************!*\
+  !*** ./client/src/components/highlightChild.jsx ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+
+
+var HighLightChild =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(HighLightChild, _React$Component);
+
+  function HighLightChild(props) {
+    var _this;
+
+    _classCallCheck(this, HighLightChild);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(HighLightChild).call(this, props));
+    _this.state = {
+      view: 0
+    };
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    return _this;
+  }
+
+  _createClass(HighLightChild, [{
+    key: "handleClick",
+    value: function handleClick() {
+      if (this.state.view === 0) {
+        this.setState({
+          view: 1
+        });
+      } else {
+        this.setState({
+          view: 0
+        });
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      if (this.state.view === 1) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          onClick: this.handleClick
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Test * "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.highlight)));
+      }
+
+      if (this.state.view === 0) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          onClick: this.handleClick
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Test2 * "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.highlight)));
+      }
+    }
+  }]);
+
+  return HighLightChild;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (HighLightChild);
+
+/***/ }),
+
 /***/ "./client/src/components/highlights.jsx":
 /*!**********************************************!*\
   !*** ./client/src/components/highlights.jsx ***!
@@ -333,6 +424,8 @@ function Contact(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _highlightChild_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./highlightChild.jsx */ "./client/src/components/highlightChild.jsx");
+
 
 
 function Highlights(props) {
@@ -340,7 +433,13 @@ function Highlights(props) {
     id: "highlights"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
     id: "summarymodule_highlights_title"
-  }, "HOME HIGHLIGHTS")));
+  }, "HOME HIGHLIGHTS"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_highlightChild_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    highlight: props.highlightOne
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_highlightChild_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    highlight: props.highlightTwo
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_highlightChild_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    highlight: props.highlightThree
+  })));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Highlights);
@@ -548,6 +647,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Title(props) {
+  if (props.guestno > 1) {
+    var guests = 'guests';
+  } else {
+    var guests = 'guest';
+  }
+
+  if (props.bedroomno > 1) {
+    var bedrooms = 'bedrooms';
+  } else {
+    var bedrooms = 'bedroom';
+  }
+
+  if (props.bedno > 1) {
+    var beds = 'guests';
+  } else {
+    var beds = 'guest';
+  }
+
+  if (props.bathno > 1) {
+    var baths = 'baths';
+  } else {
+    var baths = 'bath';
+  }
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "type"
   }, props.type), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
@@ -556,16 +679,16 @@ function Title(props) {
     id: "city"
   }, props.city), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_roomInfo_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
     info: props.guestno,
-    string: 'guests'
+    string: baths
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_roomInfo_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
     info: props.bedroomno,
-    string: 'bedrooms'
+    string: bedrooms
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_roomInfo_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
     info: props.bedno,
-    string: 'beds'
+    string: beds
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_roomInfo_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
     info: props.bathno,
-    string: 'bath'
+    string: baths
   })));
 }
 

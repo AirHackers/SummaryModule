@@ -20,6 +20,8 @@ class App extends React.Component {
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
+  // fetch call to get all data from mysql db. Utilized callback to maintain state with retried data.
+
   fetchHome(home, cb) {
     fetch(`http://localhost:3001/home/${home}/data`)
       .then(function(response) {
@@ -66,7 +68,11 @@ class App extends React.Component {
             bedno={this.state.home.BedNo}
             bathno={this.state.home.BathNo}
           />
-          <Highlights />
+          <Highlights
+            highlightOne={this.state.home.HighLightOne}
+            highlightTwo={this.state.home.HighLightTwo}
+            highlightThree={this.state.home.HighLightThree}
+          />
           <MainBody summary={this.state.home.summary} /> <br />
           <SecondBody moresummary={this.state.home.moreSummary} />
           <Contact

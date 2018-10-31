@@ -7,6 +7,7 @@ import ComponentBreak from './componentBreak.jsx';
 import Amenities from './amenities.jsx';
 import SectionHeader from './sectionHeader.jsx';
 import SleepingArrangements from './sleepingArrangements.jsx';
+import Highlights from './highlights.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -65,6 +66,7 @@ class App extends React.Component {
             bedno={this.state.home.BedNo}
             bathno={this.state.home.BathNo}
           />
+          <Highlights />
           <MainBody summary={this.state.home.summary} /> <br />
           <SecondBody moresummary={this.state.home.moreSummary} />
           <Contact

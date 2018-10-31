@@ -8,7 +8,7 @@ const port = 3001;
 
 app.use(bodyParser.json());
 
-app.use('/home/:homeId', express.static(path.join('././client/dist')));
+app.use('/home/:homeId', express.static(path.join('././public')));
 
 app.get('/home/:homeId/data', (req, res) => {
   Home.findAll({

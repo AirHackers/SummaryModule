@@ -22,24 +22,22 @@ class App extends React.Component {
 
   // fetch call to get all data from mysql db. Utilized callback to maintain state with retried data.
 
-  fetchHome(home, cb) {
-    fetch(`http://localhost:3001/home/${home}/data`)
+  fetchHome() {
+    const param = window.location.href.slice(27, -1);
+    let context = this;
+    fetch(`http://localhost:3001/home/${param}/data`)
       .then(function(response) {
         return response.json();
       })
       .then(function(myJson) {
-        cb(myJson[0]);
+        let newState = context.state;
+        newState.home = myJson[0];
+        context.setState(newState);
       });
   }
 
   componentDidMount() {
-    // reference to specific home listing
-    var param = window.location.href.slice(27, -1);
-    this.fetchHome(param, val => {
-      var newState = this.state;
-      newState.home = val;
-      this.setState(newState);
-    });
+    this.fetchHome();
   }
 
   // modal code

@@ -3,6 +3,9 @@ import ReactModal from 'react-modal';
 ReactModal.setAppElement('#app');
 
 function Contact(props) {
+  // using react-modal library. Provides some standard functions like 'onRequestClose'
+  // which allows you to close the modal by clicking in the overlay and simple styling options
+  // for both the modal and overlay.
   return (
     <div>
       <div id="Hide" onClick={props.handleOpenModal}>

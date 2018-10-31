@@ -1,42 +1,41 @@
 import React from 'react';
 
+const unclicked = 0,
+  clicked = 1;
+
 class HighLightChild extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: 0
+      view: unclicked
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
-    if (this.state.view === 0) {
+    if (this.state.view === unclicked) {
       this.setState({
-        view: 1
-      });
-    } else {
-      this.setState({
-        view: 0
+        view: clicked
       });
     }
   }
 
   render() {
-    if (this.state.view === 1) {
+    if (this.state.view === clicked) {
       return (
-        <div onClick={this.handleClick}>
+        <div>
           <div>
-            <span>Test * </span>
+            <span>Clicked * </span>
             <span>{this.props.highlight}</span>
           </div>
         </div>
       );
     }
-    if (this.state.view === 0) {
+    if (this.state.view === unclicked) {
       return (
         <div onClick={this.handleClick}>
           <div>
-            <span>Test2 * </span>
+            <span>Unclicked * </span>
             <span>{this.props.highlight}</span>
           </div>
         </div>

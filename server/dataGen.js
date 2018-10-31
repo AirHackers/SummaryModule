@@ -108,10 +108,7 @@ const dataGen = () => {
     };
     hundredRecords.push(home);
   }
-  Home.sync({ force: true }).then(() => {
-    // Table created
-    Home.bulkCreate(hundredRecords);
-  });
+  return Home.sync({ force: true }).then(() => Home.bulkCreate(hundredRecords));
 };
 
 dataGen();

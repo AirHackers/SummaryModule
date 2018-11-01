@@ -111,7 +111,7 @@ const dataGen = () => {
   return Home.sync({ force: true }).then(() => Home.bulkCreate(hundredRecords));
 };
 
-dataGen();
+// dataGen();
 
 module.exports.dataGen = dataGen;
 module.exports.home = Home;

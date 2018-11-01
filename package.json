@@ -8,7 +8,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "gen": "node ./server/dataGen.js",
+    "gen": "node ./server/seed.js",
     "start": "nodemon ./server/server.js",
     "build": "webpack --watch",
     "test": "jest --coverage --"

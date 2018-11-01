@@ -70,6 +70,9 @@ class App extends React.Component {
             highlightOne={this.state.home.HighLightOne}
             highlightTwo={this.state.home.HighLightTwo}
             highlightThree={this.state.home.HighLightThree}
+            commentOne={this.state.home.commentOne}
+            commentTwo={this.state.home.commentTwo}
+            commentThree={this.state.home.commentThree}
           />
           <MainBody summary={this.state.home.summary} /> <br />
           <SecondBody moresummary={this.state.home.moreSummary} />

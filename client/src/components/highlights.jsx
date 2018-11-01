@@ -6,9 +6,9 @@ function Highlights(props) {
     <div id="highlights">
       <div>
         <small id="summarymodule_highlights_title">HOME HIGHLIGHTS</small>
-        <HighLightChild highlight={props.highlightOne} />
-        <HighLightChild highlight={props.highlightTwo} />
-        <HighLightChild highlight={props.highlightThree} />
+        <HighLightChild highlight={props.highlightOne} comment={props.commentOne} />
+        <HighLightChild highlight={props.highlightTwo} comment={props.commentTwo} />
+        <HighLightChild highlight={props.highlightThree} comment={props.commentThree} />
       </div>
     </div>
   );

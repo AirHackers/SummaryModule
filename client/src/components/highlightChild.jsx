@@ -24,19 +24,26 @@ class HighLightChild extends React.Component {
     if (this.state.view === clicked) {
       return (
         <div>
-          <div>
-            <span>Clicked * </span>
+          <div id="summarymodule_twelve_eight">
+            <span id="summarymodule_highlights_comment">{this.props.comment} · </span>
             <span>{this.props.highlight}</span>
+          </div>
+          <div id="summarymodule_highlights_buttons">
+            <span>Thanks for your feedback.</span>
           </div>
         </div>
       );
     }
     if (this.state.view === unclicked) {
       return (
-        <div onClick={this.handleClick}>
-          <div>
-            <span>Unclicked * </span>
+        <div>
+          <div id="summarymodule_twelve_eight">
+            <span id="summarymodule_highlights_comment">{this.props.comment} · </span>
             <span>{this.props.highlight}</span>
+          </div>
+          <div id="summarymodule_highlights_buttons" onClick={this.handleClick}>
+            <span>Helpful · </span>
+            <span>Not Helpful</span>
           </div>
         </div>
       );

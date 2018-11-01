@@ -348,3 +348,11 @@
   height: 18px;
   vertical-align: bottom;
 }
+
+#sumarymodule_sleepingarrangements_svg {
+  height: 24px;
+  width: 24px;
+  margin-right: 8px;
+  margin-bottom: 24px;
+  fill: currentColor;
+}

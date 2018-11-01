@@ -91,7 +91,8 @@ class App extends React.Component {
           />
           <ComponentBreak />
           <SectionHeader header={'Sleeping Arrangements'} />
-          <SleepingArrangements />
+          <SleepingArrangements bedno={this.state.home.BedNo} />
+          <ComponentBreak />
         </div>
       </div>
     );

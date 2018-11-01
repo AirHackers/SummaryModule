@@ -112,18 +112,11 @@
   box-sizing: border-box;
   color: rgb(72, 72, 72);
   display: inline-block;
-  height: 23px;
-  text-decoration: none solid rgb(72, 72, 72);
+  height: 22px;
   text-size-adjust: 100%;
-  column-rule-color: rgb(72, 72, 72);
-  perspective-origin: 42px 11.5px;
-  transform-origin: 42px 11.5px;
-  caret-color: rgb(72, 72, 72);
-  border: 0px none rgb(72, 72, 72);
-  font: normal normal 400 normal 14px / 20.02px Circular, 'Helvetica Neue', Helvetica, Arial,
-    sans-serif;
+  font: normal normal 400 normal 16px Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
   margin: 0px 16px 16px 0px;
-  outline: rgb(72, 72, 72) none 0px;
 } /*#DIV_1*/
 
 #summary {
@@ -168,10 +161,27 @@
   right: 40px;
   bottom: 120px;
   margin: 0 auto;
-  height: 374px;
+  height: 431px;
   width: 568px;
   border: 0px;
   outline: none;
+}
+
+.summary_module_roominfo {
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  display: inline;
+  font-family: Airmoji_Standalone;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 22px;
+  overflow-wrap: break-word;
+  text-size-adjust: 100%;
+  text-transform: none;
+  margin-right: 8px;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .overlay {

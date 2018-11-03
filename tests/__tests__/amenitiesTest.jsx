@@ -17,15 +17,25 @@ test('should open amenities modal on click', () => {
   var components = mount(<App />, { disableLifecycleMethods: true });
   expect(components.find('.openAmenitiesModal').exists()).toBe(true);
   components.find('.openAmenitiesModal').simulate('click');
-  expect(components.state('showModalTwo').toBe(true));
+  expect(components.state('showModalTwo')).toBe(true);
 });
 
 test('should have a 1 guest element', () => {
-  var components = mount(<RoomInfo info={1} string={'guest'} />, {
+  var components = mount(<RoomInfo info={'1'} string={'guest'} />, {
     disableLifecycleMethods: true
   });
   // expect(components.find('.summary_module_roominfo'))
   //   .text()
   //   .toBe('1 guest');
-  expect(components.find('.summary_module_roominfo').text()).toBe('1 guest');
+  expect(components.find('#roomInfoText').text()).toBe('1 guest');
+});
+
+test('should have a 1 guest element', () => {
+  var components = mount(<RoomInfo info={'1'} string={'guest'} />, {
+    disableLifecycleMethods: true
+  });
+  // expect(components.find('.summary_module_roominfo'))
+  //   .text()
+  //   .toBe('1 guest');
+  expect(components.find('#roomInfoText').text()).toBe('1 guest');
 });

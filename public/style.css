@@ -217,15 +217,44 @@
   margin: 0 auto;
   height: 431px;
   width: 568px;
+  outline: none;
 }
 
 .summary_amenities_modal {
+  background-clip: border-box;
+  background-color: rgb(255, 255, 255);
+  background-image: none;
+  background-origin: padding-box;
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-size: auto;
+  bottom: -7035px;
+  display: block;
+  height: 700px;
+  left: 640px;
+  margin-right: -640px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 10px 0px;
+  overflow-x: scroll;
+  overflow-y: scroll;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 26px;
   position: absolute;
+  right: 734px;
+  top: 330px;
+  transform: matrix(1, 0, 0, 1, -273, -271);
+  width: 568px;
+  outline: none;
+}
+
+.testModal {
   background-color: #fff;
-  border-radius: 3px;
-  max-width: 500px;
-  margin: 50px auto;
-  padding: 20px;
+  top: 50%;
+  right: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
 }
 
 .summary_amenities_overlay {
@@ -235,7 +264,7 @@
   left: 0;
   right: 0;
   height: 5000px;
-  overflow: auto;
+  overflow: scroll;
   padding: 0 20px;
 }
 
@@ -350,6 +379,42 @@
   padding: 24px;
   margin-bottom: 16px;
 } /*#DIV_1*/
+
+#summarymodule_amenities_insideModal_text {
+  color: rgb(72, 72, 72);
+  display: block;
+  font-family: Circular, -apple-system, system-ui, Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  height: 22px;
+  letter-spacing: normal;
+  line-height: 22px;
+}
+
+#summarymodule_amenities_insideModal_description {
+  color: rgb(72, 72, 72);
+  display: block;
+  font-family: Circular, -apple-system, system-ui, Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  height: 22px;
+  letter-spacing: normal;
+  line-height: 22px;
+}
+
+#summarymodule_amenities_insideModal_break {
+  border-bottom-color: rgb(235, 235, 235);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  display: block;
+  font-family: Circular, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  height: 1px;
+  line-height: 20.02px;
+  text-size-adjust: 100%;
+}
 
 #summarymodule_amenities {
   box-sizing: border-box;

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactModal from 'react-modal';
+import AmenitiesModalChild from './amenitiesModalChild.jsx';
 //ReactModal.setAppElement('#app');
 
 function AmenitiesModal(props) {
@@ -15,8 +16,9 @@ function AmenitiesModal(props) {
         isOpen={props.showModal}
         contentLabel="Contact"
         onRequestClose={props.handleCloseModal}
-        className="modal"
-        overlayClassName="overlay"
+        className="summary_amenities_modal"
+        //overlayClassName="summary_amenities_overlay"
+        //style={customStyles}
       >
         <div>
           <svg
@@ -36,6 +38,14 @@ function AmenitiesModal(props) {
             <div>
               <h2 id="sumarymodule_contact_text">Amenities</h2>
               <h2 id="sumarymodule_contact_text_small">Basic</h2>
+              <AmenitiesModalChild />
+              <AmenitiesModalChild />
+              <AmenitiesModalChild />
+              <AmenitiesModalChild />
+              <AmenitiesModalChild />
+              <AmenitiesModalChild />
+              <AmenitiesModalChild />
+              <AmenitiesModalChild />
             </div>
           </div>
         </div>

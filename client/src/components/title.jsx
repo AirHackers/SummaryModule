@@ -11,7 +11,7 @@ function Title(props) {
     <div>
       <div>
         <span id="type">{props.type}</span> <br />
-        <div class="test">
+        <div className="test">
           <div id="image">
             <img src={props.image} id="image" />
           </div>

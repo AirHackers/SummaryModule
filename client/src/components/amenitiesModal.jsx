@@ -9,7 +9,7 @@ function AmenitiesModal(props) {
   // for both the modal and overlay.
   return (
     <div>
-      <div id="Hide" onClick={props.handleOpenModal}>
+      <div id="Hide" className="openAmenitiesModal" onClick={props.handleOpenModal}>
         Show all 4 amenities
       </div>
       <ReactModal

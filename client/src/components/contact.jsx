@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactModal from 'react-modal';
-ReactModal.setAppElement('#app');
 
 function Contact(props) {
   // using react-modal library. Provides some standard functions like 'onRequestClose'

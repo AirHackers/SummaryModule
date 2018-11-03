@@ -13,7 +13,7 @@ function RoomInfo(props) {
 
   return (
     <div id="roominfo">
-      <span class="summary_module_roominfo">{glyph}</span>
+      <span className="summary_module_roominfo">{glyph}</span>
       <span>{`${props.info} ${props.string}`}</span>
     </div>
   );

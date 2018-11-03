@@ -16,8 +16,10 @@
   "dependencies": {
     "bluebird": "^3.5.2",
     "body-parser": "^1.18.3",
+    "es6-promise": "^4.2.5",
     "express": "^4.16.4",
     "faker": "^4.1.0",
+    "isomorphic-fetch": "^2.2.1",
     "mysql2": "^1.6.1",
     "node-fetch": "^2.2.0",
     "path": "^0.12.7",

@@ -3,7 +3,7 @@ import { shallow, mount, render } from 'enzyme';
 import Amenities from '../../client/src/components/amenities.jsx';
 import App from '../../client/src/components/app.jsx';
 import RoomInfo from '../../client/src/components/roomInfo.jsx';
-const fetch = require('node-fetch');
+import fetch from 'isomorphic-fetch';
 
 test('should have 4 list items', () => {
   var components = mount(

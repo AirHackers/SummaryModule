@@ -5,7 +5,7 @@ function AmenitiesModalChild(props) {
     <div>
       <div>
         <div id="summarymodule_amenities_insideModal_text">Wifi</div>
-        <div id="summarymodule_amenities_insideModal_description" style={{ marginTop: '8px' }}>
+        <div id="summarymodule_amenities_insideModal_description">
           <div>Continuous access in the listing</div>
         </div>
       </div>

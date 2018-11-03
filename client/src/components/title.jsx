@@ -9,9 +9,18 @@ function Title(props) {
 
   return (
     <div>
-      <span id="type">{props.type}</span> <br />
-      <h1 id="title">{props.title}</h1> <br />
-      <div id="city">{props.city}</div> <br />
+      <div>
+        <span id="type">{props.type}</span> <br />
+        <div class="test">
+          <div id="image">
+            <img src={props.image} id="image" />
+          </div>
+          <div id="title_name">{props.name}</div>
+        </div>
+        <h1 id="title">{props.title}</h1> <br />
+        <div id="city">{props.city}</div> <br />
+      </div>
+
       <div>
         <RoomInfo info={props.guestno} string={guests} />
         <RoomInfo info={props.bedroomno} string={bedrooms} />

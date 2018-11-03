@@ -32,6 +32,15 @@ const Home = sequelize.define('home', {
   HighLightThree: {
     type: Sequelize.STRING
   },
+  commentOne: {
+    type: Sequelize.STRING
+  },
+  commentTwo: {
+    type: Sequelize.STRING
+  },
+  commentThree: {
+    type: Sequelize.STRING
+  },
   GuestNo: {
     type: Sequelize.TINYINT
   },
@@ -48,6 +57,9 @@ const Home = sequelize.define('home', {
     type: Sequelize.TINYINT
   },
   firstName: {
+    type: Sequelize.STRING
+  },
+  image: {
     type: Sequelize.STRING
   },
   city: {
@@ -90,12 +102,16 @@ const dataGen = () => {
       HighLightOne: faker.lorem.sentence(5),
       HighLightTwo: faker.lorem.sentence(5),
       HighLightThree: faker.lorem.sentence(5),
-      GuestNo: faker.random.number({ min: 1, max: 30 }),
-      BedroomNo: faker.random.number({ min: 1, max: 30 }),
-      BedNo: faker.random.number({ min: 1, max: 30 }),
+      commentOne: faker.lorem.words(2),
+      commentTwo: faker.lorem.words(3),
+      commentThree: faker.lorem.words(1),
+      GuestNo: faker.random.number({ min: 1, max: 10 }),
+      BedroomNo: faker.random.number({ min: 1, max: 10 }),
+      BedNo: faker.random.number({ min: 1, max: 10 }),
       BathNo: faker.random.number({ min: 1, max: 30 }),
       BadgeNo: faker.random.number({ min: 1, max: 3 }),
       firstName: faker.name.firstName(),
+      image: faker.image.avatar(),
       city: faker.address.city(),
       AmenityOne: faker.lorem.words(1),
       AmenityTwo: faker.lorem.words(1),

@@ -5,6 +5,7 @@ import SecondBody from './secondBody.jsx';
 import Contact from './contact.jsx';
 import ComponentBreak from './componentBreak.jsx';
 import Amenities from './amenities.jsx';
+import AmenitiesModal from './amenitiesModal.jsx';
 import SectionHeader from './sectionHeader.jsx';
 import SleepingArrangements from './sleepingArrangements.jsx';
 import Highlights from './highlights.jsx';
@@ -14,10 +15,13 @@ class App extends React.Component {
     super(props);
     this.state = {
       home: {},
-      showModal: false
+      showModal: false,
+      showModalTwo: false
     };
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.handleAmenitiesOpenModal = this.handleAmenitiesOpenModal.bind(this);
+    this.handleAmenitiesCloseModal = this.handleAmenitiesCloseModal.bind(this);
   }
 
   // fetch call to get all data from mysql db. Utilized callback to maintain state with retried data.
@@ -40,7 +44,7 @@ class App extends React.Component {
     this.fetchHome();
   }
 
-  // modal code
+  // Contact Modal handlers
   handleOpenModal() {
     let newState = this.state;
     newState.showModal = true;
@@ -50,6 +54,19 @@ class App extends React.Component {
   handleCloseModal() {
     let newState = this.state;
     newState.showModal = false;
+    this.setState(newState);
+  }
+
+  // Contact Modal handlers
+  handleAmenitiesOpenModal() {
+    let newState = this.state;
+    newState.showModalTwo = true;
+    this.setState(newState);
+  }
+
+  handleAmenitiesCloseModal() {
+    let newState = this.state;
+    newState.showModalTwo = false;
     this.setState(newState);
   }
 
@@ -65,11 +82,16 @@ class App extends React.Component {
             bedroomno={this.state.home.BedroomNo}
             bedno={this.state.home.BedNo}
             bathno={this.state.home.BathNo}
+            image={this.state.home.image}
+            name={this.state.home.firstName}
           />
           <Highlights
             highlightOne={this.state.home.HighLightOne}
             highlightTwo={this.state.home.HighLightTwo}
             highlightThree={this.state.home.HighLightThree}
+            commentOne={this.state.home.commentOne}
+            commentTwo={this.state.home.commentTwo}
+            commentThree={this.state.home.commentThree}
           />
           <MainBody summary={this.state.home.summary} /> <br />
           <SecondBody moresummary={this.state.home.moreSummary} />
@@ -86,9 +108,15 @@ class App extends React.Component {
             amThree={this.state.home.AmenityThree}
             amFour={this.state.home.AmenityFour}
           />
+          <AmenitiesModal
+            showModal={this.state.showModalTwo}
+            handleOpenModal={this.handleAmenitiesOpenModal}
+            handleCloseModal={this.handleAmenitiesCloseModal}
+          />
           <ComponentBreak />
           <SectionHeader header={'Sleeping Arrangements'} />
-          <SleepingArrangements />
+          <SleepingArrangements bedno={this.state.home.BedNo} />
+          <ComponentBreak />
         </div>
       </div>
     );

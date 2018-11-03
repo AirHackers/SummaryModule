@@ -33,8 +33,8 @@ function SleepingArrangements(props) {
           </svg>
         </span>
       </div>
-      <div>test</div>
-      <div>test</div>
+      <div id="summarymodule_sleepingarrangements_config">Common spaces</div>
+      <div>1 single bed, 1 sofa bed</div>
     </div>
   );
 }

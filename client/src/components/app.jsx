@@ -14,7 +14,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      home: {},
+      home: { Amenities: 'preRenderData' },
       showModal: false,
       showModalTwo: false
     };
@@ -102,13 +102,9 @@ class App extends React.Component {
           />
           <ComponentBreak />
           <SectionHeader header={'Amenities'} />
-          <Amenities
-            amOne={this.state.home.AmenityOne}
-            amTwo={this.state.home.AmenityTwo}
-            amThree={this.state.home.AmenityThree}
-            amFour={this.state.home.AmenityFour}
-          />
+          <Amenities amenities={this.state.home.Amenities.split(' ')} />
           <AmenitiesModal
+            amenities={this.state.home.Amenities.split(' ')}
             showModal={this.state.showModalTwo}
             handleOpenModal={this.handleAmenitiesOpenModal}
             handleCloseModal={this.handleAmenitiesCloseModal}

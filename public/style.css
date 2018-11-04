@@ -222,9 +222,9 @@
 
 .summary_amenities_modal {
   background-color: white;
-  bottom: -7035px;
+  bottom: 0px;
   display: block;
-  height: 700px;
+  height: 500px;
   left: 640px;
   margin-right: -640px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 10px 0px;
@@ -408,6 +408,12 @@
   height: 1px;
   line-height: 20.02px;
   text-size-adjust: 100%;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.horizontalDivs {
+  display: inline-block;
 }
 
 #summarymodule_amenities {
@@ -425,6 +431,7 @@
   font: normal normal 400 normal 16px / 22px Circular, -apple-system, system-ui, Roboto,
     'Helvetica Neue', sans-serif;
   margin-bottom: 16px;
+  vertical-align: top;
 } /*#DIV_1*/
 
 #summarymodule_highlights_title {

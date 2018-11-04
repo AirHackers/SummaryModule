@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 import AmenitiesModalChild from './amenitiesModalChild.jsx';
-//ReactModal.setAppElement('#app');
 
 function AmenitiesModal(props) {
   // using react-modal library. Provides some standard functions like 'onRequestClose'
@@ -10,7 +9,7 @@ function AmenitiesModal(props) {
   return (
     <div>
       <div id="Hide" className="openAmenitiesModal" onClick={props.handleOpenModal}>
-        Show all 4 amenities
+        {`Show all ${props.amenities.length} amenities`}
       </div>
       <ReactModal
         isOpen={props.showModal}
@@ -18,7 +17,6 @@ function AmenitiesModal(props) {
         onRequestClose={props.handleCloseModal}
         className="summary_amenities_modal"
         overlayClassName="summary_amenities_overlay"
-        //style={customStyles}
       >
         <div>
           <svg
@@ -38,12 +36,9 @@ function AmenitiesModal(props) {
             <div>
               <h2 id="sumarymodule_contact_text">Amenities</h2>
               <h2 id="sumarymodule_contact_text_small">Basic</h2>
-              <AmenitiesModalChild />
-              <AmenitiesModalChild />
-              <AmenitiesModalChild />
-              <AmenitiesModalChild />
-              <AmenitiesModalChild />
-              <AmenitiesModalChild />
+              {props.amenities.map(ele => {
+                return <AmenitiesModalChild amenity={ele} />;
+              })}
             </div>
           </div>
         </div>

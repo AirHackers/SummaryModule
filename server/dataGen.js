@@ -88,6 +88,9 @@ const Home = sequelize.define('home', {
   },
   AmenityFourDesc: {
     type: Sequelize.STRING
+  },
+  Amenities: {
+    type: Sequelize.STRING
   }
 });
 
@@ -120,14 +123,13 @@ const dataGen = () => {
       AmenityOneDesc: faker.company.catchPhrase(),
       AmenityTwoDesc: faker.company.catchPhrase(),
       AmenityThreeDesc: faker.company.catchPhrase(),
-      AmenityFourDesc: faker.company.catchPhrase()
+      AmenityFourDesc: faker.company.catchPhrase(),
+      Amenities: faker.lorem.words(Math.floor(Math.random() * 30) + 1)
     };
     hundredRecords.push(home);
   }
   return Home.sync({ force: true }).then(() => Home.bulkCreate(hundredRecords));
 };
-
-// dataGen();
 
 module.exports.dataGen = dataGen;
 module.exports.home = Home;

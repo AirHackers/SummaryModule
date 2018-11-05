@@ -1,11 +1,15 @@
 const faker = require('faker');
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('mysql://root@localhost:3306/airbnb', {
+const sequelize = new Sequelize('mysql://root@localhost:3306/', {
   logging: false
 });
 
-const Home = sequelize.define('home', {
+const sequelizeMain = new Sequelize('mysql://root@localhost:3306/airbnb', {
+  logging: false
+});
+
+const Home = sequelizeMain.define('home', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -128,7 +132,9 @@ const dataGen = () => {
     };
     hundredRecords.push(home);
   }
-  return Home.sync({ force: true }).then(() => Home.bulkCreate(hundredRecords));
+  return sequelize.query('CREATE DATABASE IF NOT EXISTS `airbnb`;').then(() => {
+    Home.sync({ force: true }).then(() => Home.bulkCreate(hundredRecords));
+  });
 };
 
 module.exports.dataGen = dataGen;

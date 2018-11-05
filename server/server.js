@@ -8,9 +8,9 @@ const port = 3001;
 
 app.use(bodyParser.json());
 
-app.use('/home/:homeId', express.static(path.join('././public')));
+app.use('/homes/:homeId', express.static(path.join('././public')));
 
-app.get('/home/:homeId/data', (req, res) => {
+app.get('/homes/:homeId/data', (req, res) => {
   Home.findAll({
     where: {
       id: req.param('homeId')

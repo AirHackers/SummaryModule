@@ -72,7 +72,6 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
         <div id="mainApp">
           <Title
             title={this.state.home.title}
@@ -114,7 +113,6 @@ class App extends React.Component {
           <SleepingArrangements bedno={this.state.home.BedNo} />
           <ComponentBreak />
         </div>
-      </div>
     );
   }
 }

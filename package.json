@@ -10,7 +10,8 @@
   "scripts": {
     "gen": "node ./server/seed.js",
     "start": "nodemon ./server/server.js",
-    "build": "webpack --watch",
+    "dev": "webpack --watch",
+    "build": "webpack --mode production --source-map=false",
     "test": "jest --coverage --"
   },
   "dependencies": {

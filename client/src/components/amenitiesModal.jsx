@@ -36,8 +36,8 @@ function AmenitiesModal(props) {
             <div>
               <h2 id="sumarymodule_contact_text">Amenities</h2>
               <h2 id="sumarymodule_contact_text_small">Basic</h2>
-              {props.amenities.map(ele => {
-                return <AmenitiesModalChild amenity={ele} />;
+              {props.amenities.map((ele, i) => {
+                return <AmenitiesModalChild key={i} amenity={ele} />;
               })}
             </div>
           </div>

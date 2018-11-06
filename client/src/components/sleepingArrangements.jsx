@@ -34,7 +34,10 @@ function SleepingArrangements(props) {
         </span>
       </div>
       <div id="summarymodule_sleepingarrangements_config">Common spaces</div>
-      <div>1 single bed, 1 sofa bed</div>
+      <div>
+        {Math.ceil(props.bedno / 2)} {props.bedno / 2 > 1 ? 'beds' : 'bed'},{' '}
+        {Math.floor(props.bedno / 2)} {props.bedno / 2 < 2 ? 'sofa bed' : 'sofa beds'}
+      </div>
     </div>
   );
 }

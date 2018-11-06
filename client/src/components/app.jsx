@@ -27,9 +27,9 @@ class App extends React.Component {
   // fetch call to get all data from mysql db. Utilized callback to maintain state with retried data.
 
   fetchHome() {
-    const param = window.location.href.slice(28, -1);
+    var params = window.location.href.split('/');
     let context = this;
-    fetch(`http://localhost:3001/homes/${param}/data`)
+    fetch(`http://localhost:3001/homes/${params[params.length - 2]}/data`)
       .then(function(response) {
         return response.json();
       })

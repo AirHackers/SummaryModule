@@ -11,7 +11,7 @@
     "gen": "node ./server/seed.js",
     "start": "nodemon ./server/server.js",
     "dev": "webpack --watch",
-    "build": "webpack --mode production --source-map=false",
+    "build": "webpack --mode production --devtool=false",
     "test": "jest --coverage --"
   },
   "dependencies": {

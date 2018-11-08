@@ -1,11 +1,11 @@
 const faker = require('faker');
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('mysql://root@localhost:3306/', {
+const sequelize = new Sequelize('mysql://root:example@172.17.0.2:3306', {
   logging: false
 });
 
-const sequelizeMain = new Sequelize('mysql://root@localhost:3306/airbnb', {
+const sequelizeMain = new Sequelize('mysql://root:example@172.17.0.2:3306/airbnb', {
   logging: false
 });
 
@@ -133,7 +133,13 @@ const dataGen = () => {
     hundredRecords.push(home);
   }
   return sequelize.query('CREATE DATABASE IF NOT EXISTS `airbnb`;').then(() => {
-    Home.sync({ force: true }).then(() => Home.bulkCreate(hundredRecords));
+    return Home.sync({ force: true })
+      .then(() => {
+        return Home.bulkCreate(hundredRecords);
+      })
+      .then(() => {
+        process.exit();
+      });
   });
 };
 

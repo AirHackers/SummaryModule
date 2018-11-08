@@ -5,11 +5,11 @@
   "author": "Keshav Mandayam",
   "license": "ISC",
   "engines": {
-    "node": ">=6.13.0"
+    "node": "7.6-alpine"
   },
   "scripts": {
     "gen": "node ./server/seed.js",
-    "start": "nodemon ./server/server.js",
+    "start": "node ./server/server.js",
     "build": "webpack --watch",
     "test": "jest --coverage --"
   },

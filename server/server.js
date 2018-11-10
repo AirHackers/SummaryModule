@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const { dataGen } = require('./dataGen.js');
 const Home = require('./dataGen.js').home;
 const app = express();
 const port = 3001;

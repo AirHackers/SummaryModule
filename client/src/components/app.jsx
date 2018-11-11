@@ -29,7 +29,7 @@ class App extends React.Component {
   fetchHome() {
     var params = window.location.href.split('/');
     let context = this;
-    fetch(`http://localhost:3001/homes/${params[params.length - 2]}/data`)
+    fetch(`/homes/${params[params.length - 2]}/data`)
       .then(function(response) {
         return response.json();
       })
